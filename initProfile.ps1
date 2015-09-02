@@ -52,7 +52,7 @@ function tf(){
 }
 
 
-$editorOfChoice = Coalesce-Paths (Find-Program 'vim\vim73\vim.exe') (Find-Program 'Notepad++\notepad++.exe')
+$editorOfChoice = Coalesce-Paths (Find-Program 'vim\vim73\vim.exe') (Find-Program 'Sublime Text 2\sublime_text.exe')
 if($editorOfChoice)
 {
     set-alias notepad $editorOfChoice
