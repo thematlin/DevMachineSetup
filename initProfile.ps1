@@ -41,7 +41,7 @@ foreach($file in (ls "$globalProfileScriptsPath*.ps1"))
 
 
 
-$tfPath = Coalesce-Paths (Find-Program 'Microsoft Visual Studio 11.0\Common7\IDE\TF.exe' -force) (Find-Program 'Microsoft Visual Studio 10.0\Common7\IDE\TF.exe' -force)
+$tfPath = Coalesce-Paths (Find-Program 'Microsoft Visual Studio 14.0\Common7\IDE\TF.exe' -force) (Find-Program 'Microsoft Visual Studio 12.0\Common7\IDE\TF.exe' -force)
 function tf(){
 	if($tfPath -and (test-path $tfPath)) {
 		& $tfPath $args;
