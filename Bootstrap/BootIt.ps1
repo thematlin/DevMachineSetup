@@ -14,29 +14,18 @@ chocolatey install chocolatey -pre
 
 
 $chocolateyIds = '7zip
-notepadplusplus
+sublimetext2
 poshgit
 fiddler
-treesizefree
 P4Merge
-wincommandpaste
-linqpad4
-putty
-f.lux
-SkyDrive
-paint.net
-git-credential-winstore
-dotpeek
-googlechrome
-WindowsLiveWriter
-boxstarter'
+git-credential-winstore'
 
 $chocolateyIds > ChocolateyInstallIds.txt
 $path = get-item 'ChocolateyInstallIds.txt'
 $notepad = [System.Diagnostics.Process]::Start( "notepad.exe", $path )
 $notepad.WaitForExit()
 $chocolateyIds = (cat $path | where { $_ })
-$chocolateyIds | %{ cinstm $_ }
+$chocolateyIds | %{ cinst $_ }
 
 
 
@@ -76,8 +65,8 @@ if(!(where.exe git)){
 	}
 }
 
-git config --global user.email jason@elegantcode.com
-git config --global user.name 'Jason Jarrett'
+git config --global user.email mattias@mlindahl.nu
+git config --global user.name 'Mattias Lindahl'
 git config --global color.status.changed "cyan normal bold" 
 git config --global color.status.untracked "cyan normal bold"
 
@@ -92,7 +81,7 @@ if($chocolateyIds -match 'p4merge') {
 }
 
 # setup local powershell profile.
-iex ((new-object net.webclient).DownloadString('https://raw.github.com/staxmanade/DevMachineSetup/master/Bootstrap/initPsProfile.ps1'))
+iex ((new-object net.webclient).DownloadString('https://raw.github.com/thematlin/DevMachineSetup/master/Bootstrap/initPsProfile.ps1'))
 
 
 Install-WindowsUpdate -AcceptEulaInstall-WindowsUpdate -AcceptEula
